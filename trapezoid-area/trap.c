@@ -76,7 +76,7 @@ double Trap(double a, double b, int n, int thread_count)
    int* iters = malloc(n*sizeof(int));
    h = (b-a)/n; 
    approx = (f(a) + f(b))/2.0; 
-   #  pragma omp parallel for num_threads(thread_count) \reduction(+: approx) schedule(runtime)
+   #  pragma omp parallel for num_threads(thread_count) \ reduction(+: approx) schedule(runtime)
    for (i = 1; i <= n-1; i++) 
    {
      approx += f(a + i*h);
